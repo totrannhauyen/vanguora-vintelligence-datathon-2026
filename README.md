@@ -86,6 +86,9 @@ The dataset simulates operations of an **e-commerce fashion business in Vietnam 
 │   ├── preprocessing.py
 │   ├── features.py
 │   └── model.py
+├── 📁 report/
+│   ├── report.tex
+|   └── report.pdf
 ├── submission.csv
 ├── requirements.txt
 └── README.md
