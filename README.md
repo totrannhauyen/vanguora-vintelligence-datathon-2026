@@ -228,7 +228,7 @@ Date,Revenue,COGS
 
 ---
 
-### 2/ Trần Phú Nghĩa – Modeling
+### 2/ Trần Phú Nghĩa – Modeling & MCQ
 
 * Model selection & training
 * Hyperparameter tuning
