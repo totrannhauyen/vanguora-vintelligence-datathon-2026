@@ -220,7 +220,7 @@ Date,Revenue,COGS
 
 ## 👥 Team Members & Responsibilities
 
-### 1/ Tô Trần Nhã Uyên – Data Processing & Exploration
+### 1/ Tô Trần Nhã Uyên – Data Processing & Exploration (Team Leader)
 
 * Data preprocessing & cleaning
 * Exploratory Data Analysis (EDA)
