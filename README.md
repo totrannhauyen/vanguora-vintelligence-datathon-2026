@@ -19,20 +19,20 @@ The goal is to transform raw e-commerce data into **actionable business insights
 
 This project addresses three main tasks:
 
-1. **📍 Exploratory Data Analysis (EDA) & Visualization**
+**1. Exploratory Data Analysis (EDA) & Visualization**
 
-   * Discover patterns, trends, and anomalies in the dataset
-   * Generate business insights through data storytelling
+   * Discover patterns, trends, and anomalies in the dataset.
+   * Generate business insights through data storytelling.
 
-2. **📍 Business Analytics**
+**2. Business Analytics**
 
-   * Understand customer behavior, product performance, and operational efficiency
-   * Provide actionable recommendations
+   * Understand customer behavior, product performance, and operational efficiency.
+   * Provide actionable recommendations.
 
-3. **📍 Sales Forecasting**
+**3. Sales Forecasting**
 
-   * Predict future **Revenue** based on historical data
-   * Optimize forecasting accuracy using machine learning models
+   * Predict future **Revenue** based on historical data.
+   * Optimize forecasting accuracy using machine learning models.
 
 ---
 
@@ -40,31 +40,31 @@ This project addresses three main tasks:
 
 The dataset simulates operations of an **e-commerce fashion business in Vietnam (2012–2024)** and includes **15 CSV files**, categorized into 4 layers:
 
-### 🔹 1. Master Data
+### 1. Master Data
 
-* `products.csv` – Product catalog
-* `customers.csv` – Customer information
-* `promotions.csv` – Promotion campaigns
-* `geography.csv` – Location data
+* `products.csv` – Product catalog.
+* `customers.csv` – Customer information.
+* `promotions.csv` – Promotion campaigns.
+* `geography.csv` – Location data.
 
-### 🔹 2. Transaction Data
+### 2. Transaction Data
 
 * `orders.csv` – Orders
-* `order_items.csv` – Order details
-* `payments.csv` – Payment info
-* `shipments.csv` – Shipping data
-* `returns.csv` – Returns
-* `reviews.csv` – Customer reviews
+* `order_items.csv` – Order details.
+* `payments.csv` – Payment info.
+* `shipments.csv` – Shipping data.
+* `returns.csv` – Returns.
+* `reviews.csv` – Customer reviews.
 
-### 🔹 3. Analytical Data
+### 3. Analytical Data
 
-* `sales.csv` – Revenue (training data)
-* `sales_test.csv` – Forecasting target
+* `sales.csv` – Revenue (training data).
+* `sales_test.csv` – Forecasting target.
 
-### 🔹 4. Operational Data
+### 4. Operational Data
 
-* `inventory.csv` – Inventory snapshots
-* `web_traffic.csv` – Website traffic
+* `inventory.csv` – Inventory snapshots.
+* `web_traffic.csv` – Website traffic.
 
 ---
 
@@ -83,15 +83,15 @@ The dataset simulates operations of an **e-commerce fashion business in Vietnam 
 ```
 📦 vanguora-vintelligence-datathon-2026
 ├── 📁 src/
-│   ├── mcq.py
-│   ├── preprocessing.py
-│   ├── features.py
-│   └── model.py
+│   ├── vanguora-vintelligence-datathon-2026-mcq.ipynb
+│   ├── vanguora-vintelligence-datathon-2026-eda.ipynb
+│   ├── vanguora-vintelligence-datathon-2026-features.ipynb
+|   ├── vanguora-vintelligence-datathon-2026-visualization.ipynb
+│   └── vanguora-vintelligence-datathon-2026-model.ipynb
 ├── 📁 report/
 │   ├── report.tex
 |   └── report.pdf
 ├── submission.csv
-├── requirements.txt
 └── README.md
 ```
 
@@ -101,12 +101,12 @@ The dataset simulates operations of an **e-commerce fashion business in Vietnam 
 
 Key analysis includes:
 
-* Customer segmentation & behavior
-* Product performance & profit margins
-* Promotion effectiveness
-* Return patterns & reasons
-* Website traffic vs sales correlation
-* Inventory optimization insights
+* Customer segmentation & behavior.
+* Product performance & profit margins.
+* Promotion effectiveness.
+* Return patterns & reasons.
+* Website traffic vs sales correlation.
+* Inventory optimization insights.
 
 ---
 
@@ -122,17 +122,15 @@ Forecast daily **Revenue** for the period:
 
 ### 🔹 Feature Engineering
 
-* Time-based features (day, month, seasonality)
-* Lag features & rolling statistics
-* Promotion & inventory signals
-* Traffic-based indicators
+* Time-based features (day, month, seasonality).
+* Lag features & rolling statistics.
+* Promotion & inventory signals.
+* Traffic-based indicators.
 
 ### 🔹 Models Used
 
-* Linear Regression
 * Random Forest
-* XGBoost / LightGBM
-* Time Series Models (ARIMA / Prophet)
+* XGBoost.
 
 ---
 
@@ -144,8 +142,8 @@ Forecast daily **Revenue** for the period:
 
 Goal:
 
-* Minimize MAE & RMSE
-* Maximize R² (closer to 1 is better)
+* Minimize MAE & RMSE.
+* Maximize R² (closer to 1 is better).
 
 ---
 
@@ -154,27 +152,24 @@ Goal:
 ### 1. Clone repository
 
 ```bash
-git clone https://github.com/your-repo/datathon-2026.git
-cd datathon-2026
+git clone [(attach link here)]([https://drive.google.com/drive/folders/1Jg3fHJugJVlRgAq5aoQGmYV28adSFBoh?usp=drive_link](https://github.com/totrannhauyen/vanguora-vintelligence-datathon-2026.git))
+cd vanguora-vintelligence-datathon-2026
 ```
 
-### 2. Install dependencies
+### 2. Run notebook
 
 ```bash
-pip install -r requirements.txt
-```
-
-### 3. Run pipeline
-
-```bash
-python src/preprocessing.py
-python src/features.py
-python src/model.py
+src/
+├── vanguora-vintelligence-datathon-2026-eda.ipynb
+├── vanguora-vintelligence-datathon-2026-features.ipynb
+├── vanguora-vintelligence-datathon-2026-visualization.ipynb
+├── vanguora-vintelligence-datathon-2026-model.ipynb
+└── vanguora-vintelligence-datathon-2026-mcq.ipynb
 ```
 
 ---
 
-## 📤 Submission Format
+## 3. Output
 
 File: `submission.csv`
 
@@ -186,35 +181,35 @@ Date,Revenue,COGS
 
 ⚠️ Requirements:
 
-* Keep original row order
-* No external data usage
-* Ensure reproducibility
+* Keep original row order.
+* No external data usage.
+* Ensure reproducibility.
 
 ---
 
 ## 💡 Key Insights (Example)
 
-* Certain product segments yield higher profit margins
-* Promotions significantly impact short-term revenue spikes
-* High return rates correlate with specific sizes/categories
-* Web traffic is a strong leading indicator of sales
+* Certain product segments yield higher profit margins.
+* Promotions significantly impact short-term revenue spikes.
+* High return rates correlate with specific sizes/categories.
+* Web traffic is a strong leading indicator of sales.
 
 ---
 
 ## 🧠 Business Recommendations
 
-* Optimize inventory for high-demand segments
-* Personalize promotions by customer segment
-* Reduce return rates via sizing improvements
-* Invest in high-performing marketing channels
+* Optimize inventory for high-demand segments.
+* Personalize promotions by customer segment.
+* Reduce return rates via sizing improvements.
+* Invest in high-performing marketing channels.
 
 ---
 
 ## 📎 Reproducibility
 
-* Random seeds are fixed
-* Full pipeline is provided
-* No external data is used
+* Random seeds are fixed.
+* Full pipeline is provided.
+* No external data is used.
 
 ---
 
@@ -222,48 +217,48 @@ Date,Revenue,COGS
 
 ### 1/ Tô Trần Nhã Uyên – Data Processing & Exploration (Team Leader)
 
-* Data preprocessing & cleaning
-* Exploratory Data Analysis (EDA)
-* Feature engineering
-* Data visualization
+* Answering multiple-choice questions (Part 1).
+* Data preprocessing & cleaning.
+* Exploratory Data Analysis (EDA).
+* Feature engineering.
+* Data visualization.
+* Model training & tuning (XGBoost).
+* Forecasting **Revenue** & evaluation (MAE, RMSE, R²).
 
 ---
 
-### 2/ Trần Phú Nghĩa – Modeling & MCQ
+### 2/ Trần Phú Nghĩa – Modeling
 
-* Model selection & training
-* Hyperparameter tuning
-* Time series forecasting
-* Model evaluation (MAE, RMSE, R²)
-* Generate final `submission.csv`
-* Answering multiple-choice questions (Part 1)
+* Model training & tuning (Random Forest).
+* Forecasting **Revenue** & evaluation (MAE, RMSE, R²).
 
 ---
 
 ### 3/ Nguyễn Đình Sinh Quảng – Business Analysis & MCQ
 
-* Business insight extraction
-* Data storytelling
-* Answering multiple-choice questions (Part 1)
-* Supporting interpretation of results
+* Answering multiple-choice questions (Part 1).
+* Data visualization.
+* Business insight extraction.
+* Data storytelling.
+* Supporting interpretation of results.
 
 ---
 
 ### 4/ Nguyễn Đức Nhật – Advanced Analysis
 
-* Deep-dive analysis across multiple datasets
-* Cross-table insights (customer, product, inventory, traffic)
-* Supporting EDA & validation of findings
-* Contributing to final report
+* Data visualization.
+* Supporting EDA & validation of findings.
+* Contributing to final report.
 
 ---
 
 ## 🤝 Collaboration Workflow
 
-* Member 1 prepares clean dataset and features
-* Member 2 builds and optimizes models
-* Member 3 & 4 analyze results and generate insights
-* All members contribute to final report and submission
+* Member 1 leads coordination, preprocessing, feature engineering, and core model development.
+* Member 2 develops and optimizes additional predictive models.
+* Member 3 analyzes business insights and interprets results.
+* Member 4 supports validation, visualization, and reporting.
+* All members collaborate on final submission and presentation.
 
 ---
 
@@ -273,7 +268,8 @@ Date,Revenue,COGS
 ## 📌 Competition Links
 
 * Kaggle: https://www.kaggle.com/competitions/datathon-2026-round-1
-* Report: (attach link here)
+* Report: [(attach link here)](https://drive.google.com/drive/folders/1Jg3fHJugJVlRgAq5aoQGmYV28adSFBoh?usp=drive_link)
+* Github: [(attach link here)](https://github.com/totrannhauyen/vanguora-vintelligence-datathon-2026.git)
 
 ---
 
