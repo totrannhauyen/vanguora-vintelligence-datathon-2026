@@ -70,11 +70,11 @@ The dataset simulates operations of an **e-commerce fashion business in Vietnam 
 
 ## 🔗 Data Relationships
 
-* `orders` ↔ `payments`: 1–1
-* `orders` ↔ `shipments`: 1–0/1
-* `orders` ↔ `returns`: 1–many
-* `orders` ↔ `reviews`: 1–many
-* `products` ↔ `inventory`: 1–many
+* `orders` ↔ `payments`: 1–1.
+* `orders` ↔ `shipments`: 1–0/1.
+* `orders` ↔ `returns`: 1–many.
+* `orders` ↔ `reviews`: 1–many.
+* `products` ↔ `inventory`: 1–many.
 
 ---
 
@@ -136,9 +136,9 @@ Forecast daily **Revenue** for the period:
 
 ## 📏 Evaluation Metrics
 
-* **MAE (Mean Absolute Error)**
-* **RMSE (Root Mean Squared Error)**
-* **R² Score**
+* **MAE (Mean Absolute Error).**
+* **RMSE (Root Mean Squared Error).**
+* **R² Score.**
 
 Goal:
 
@@ -218,8 +218,7 @@ Date,Revenue,COGS
 ### 1/ Tô Trần Nhã Uyên – Data Processing & Exploration (Team Leader)
 
 * Answering multiple-choice questions (Part 1).
-* Data preprocessing & cleaning.
-* Exploratory Data Analysis (EDA).
+* Data cleaning & Exploratory Data Analysis (EDA).
 * Feature engineering.
 * Data visualization.
 * Model training & tuning (XGBoost).
@@ -229,6 +228,7 @@ Date,Revenue,COGS
 
 ### 2/ Trần Phú Nghĩa – Modeling
 
+* Feature engineering.
 * Model training & tuning (Random Forest).
 * Forecasting **Revenue** & evaluation (MAE, RMSE, R²).
 
@@ -240,14 +240,15 @@ Date,Revenue,COGS
 * Data visualization.
 * Business insight extraction.
 * Data storytelling.
+* Contributing to final report.
 * Supporting interpretation of results.
 
 ---
 
 ### 4/ Nguyễn Đức Nhật – Advanced Analysis
 
-* Data visualization.
-* Supporting EDA & validation of findings.
+* Business insight extraction.
+* Data storytelling.
 * Contributing to final report.
 
 ---
@@ -257,7 +258,7 @@ Date,Revenue,COGS
 * Member 1 leads coordination, preprocessing, feature engineering, and core model development.
 * Member 2 develops and optimizes additional predictive models.
 * Member 3 analyzes business insights and interprets results.
-* Member 4 supports validation, visualization, and reporting.
+* Member 4 visualization, and reporting.
 * All members collaborate on final submission and presentation.
 
 ---
