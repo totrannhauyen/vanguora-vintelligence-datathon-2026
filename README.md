@@ -114,27 +114,46 @@ Key analysis includes:
 
 ### 🔹 Problem
 
-Forecast daily **Revenue** for the period:
+Build a forecasting model to predict daily Revenue for the period:
 
 ```
 01/01/2023 → 01/07/2024
 ```
+The objective is to capture sales patterns, seasonality, promotions, and operational factors affecting revenue performance.
 
 ### 🔹 Feature Engineering
-
-* Time-based features (day, month, seasonality).
-* Lag features & rolling statistics.
-* Promotion & inventory signals.
-* Traffic-based indicators.
-
+The following features were created to improve model performance:
+* Time-based features: day, week, month, quarter, seasonality.
+* Lag features: previous revenue values (e.g., 1-day, 7-day, 30-day lag).
+* Rolling statistics: moving average, rolling standard deviation.
+* Promotion signals: discount campaigns, marketing activities.
+* Inventory signals: stock availability, replenishment indicators.
+* Traffic indicators: sessions, visits, customer activity.
 ### 🔹 Models Used
-
-* Random Forest
+The main model used for forecasting:
 * XGBoost.
+Reasons for choosing XGBoost:
+* Strong performance on structured/tabular data.
+* Handles non-linear relationships effectively.
+* Robust to missing values and feature interactions.
+* High predictive accuracy for time-series regression with engineered features.
 
 ---
+### 🔹 Hyperparameter Optimization
+To improve performance, Optuna was used for automated hyperparameter tuning.
+Optimized parameters include:
+* n_estimators.
+* max_depth.
+* learning_rate.
+* subsample.
+* colsample_bytree.
+* min_child_weight.
+* gamma.
+* reg_alpha.
+* reg_lambda.
 
-## 📏 Evaluation Metrics
+---
+## 🔹 Evaluation Metrics
 
 * **MAE (Mean Absolute Error).**
 * **RMSE (Root Mean Squared Error).**
@@ -146,7 +165,10 @@ Goal:
 * Maximize R² (closer to 1 is better).
 
 ---
+## 🔹 Final Outcome
+The tuned XGBoost + Optuna pipeline delivered strong forecasting performance and was selected as the final model for daily revenue prediction.
 
+---
 ## 🚀 How to Run
 
 ### 1. Clone repository
@@ -218,7 +240,8 @@ Date,Revenue,COGS
 ### 1/ Tô Trần Nhã Uyên – Data Processing & Exploration (Team Leader)
 
 * Answering multiple-choice questions (Part 1).
-* Data cleaning & Exploratory Data Analysis (EDA).
+* Data cleaning.
+* Exploratory Data Analysis (EDA).
 * Feature engineering.
 * Data visualization.
 
