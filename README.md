@@ -88,9 +88,9 @@ The dataset simulates operations of an **e-commerce fashion business in Vietnam 
 |   ├── vanguora-vintelligence-datathon-2026-visualization.ipynb
 │   └── vanguora-vintelligence-datathon-2026-features&model.ipynb
 ├── 📁 report/
-│   ├── vanguora-vintelligence-datathon-2026-report.tex
 |   └── vanguora-vintelligence-datathon-2026-report.pdf
-├── submission.csv
+├── 📁 result/
+├── └── submission.csv
 └── README.md
 ```
 
