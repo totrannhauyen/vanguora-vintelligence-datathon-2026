@@ -1,0 +1,239 @@
+\documentclass{article}
+ \usepackage[final]{neurips_2025}
+ \usepackage[utf8]{vietnam}
+
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{graphicx}
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage[protrusion=false]{microtype}     % microtypography
+\usepackage{xcolor}         % colors
+
+\setlength{\emergencystretch}{3em}
+
+\title{Business Insights and Recommendations}
+\author{
+  Đội thi: Vanguora\\
+  \vspace{0.3em}
+  T.-T.-N. Uyen To \quad P.-N. Nghia Tran \quad D.-S.-Q. Quang Nguyen \quad D.-N. Nhat Nguyen \\
+  \vspace{0.3em}
+  Datathon 2026 - The Gridbreakers \\
+  \texttt{https://github.com/totrannhauyen/vanguora-vintelligence-datathon-2026}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Báo cáo này trình bày hai insights chiến lược được rút ra từ quá trình phân tích dữ liệu vận hành và marketing, nhằm làm rõ các yếu tố ảnh hưởng đến hiệu quả kinh doanh. Insight thứ nhất tập trung vào bài toán ``bẫy giảm giá'' và sự rò rỉ lợi nhuận tại danh mục Streetwear, chỉ ra rằng việc lạm dụng khuyến mãi có thể làm suy giảm biên lợi nhuận và tạo hành vi phụ thuộc từ phía khách hàng, từ đó đề xuất các điều chỉnh trong chiến lược pricing và promotion. Insight thứ hai bóc tách hiện tượng ``ảo giác'' lưu lượng truy cập (traffic) trong giai đoạn đại dịch, khi lượng truy cập tăng nhưng chất lượng khách hàng suy giảm. Thông qua phân tích theo từng kênh, báo cáo đề xuất tái phân bổ ngân sách marketing theo hướng ưu tiên các nguồn traffic có giá trị cao, nhằm hướng tới tăng trưởng bền vững. Bên cạnh đó, báo cáo phát triển pipeline dự báo chuỗi thời gian cho Revenue, kết hợp feature đa nguồn và mô hình học máy, nhằm hỗ trợ ra quyết định dựa trên dữ liệu trong tương lai.
+\end{abstract}
+
+
+\maketitle
+\raggedbottom
+\section{Trực quan hoá dữ liệu (Exploratory Data Analysis - EDA)}
+\subsection{Insight 1: Revenue Dependency and Profit Leakage in Streetwear}
+\vspace{-1em}
+
+\noindent
+\textbf{Descriptive.} Streetwear đóng góp 26.26bn với tỉ trọng doanh thu lớn nhất (79.92\%), nhưng doanh thu có xu hướng giảm mạnh từ trong khoảng Sep - Feb. Tuy nhiên, biên lợi nhuận chỉ 13.24\%, thấp hơn trung bình công ty (13.80\%) và thấp xa GenZ (19.13\%).\par
+\vspace{-0.3em}
+
+\noindent
+\textbf{Diagnostic.} Nguyên nhân chính: (i) Lạm dụng giảm giá (Discount Intensity $\sim$8\%), cao nhất hệ thống (ii) Price Realization thấp nhất (0.92), (iii) Hoàn hàng lớn (21.8K đơn) do sai size (8K) và lỗi sản phẩm (4K). \textit{=> Chi phí vận hành (reverse logistics, kiểm kho, đóng gói) và lạm dụng "ép giá" đã ăn mòn lợi nhuận.}\par
+\vspace{-0.3em}
+
+\noindent
+\textbf{Predictive.} Nếu không cải thiện: (i) Tỷ lệ khách quay lại tiếp tục giảm do trải nghiệm kém (ii) Phụ thuộc khách mới vốn có chi phí Marketing cao (iii) Biên lợi nhuận có thể xuống dưới 10\% do vòng xoáy giảm giá + hoàn hàng.\par
+\vspace{-0.3em}
+
+\noindent
+\textbf{Prescriptive.} (1) Cải thiện size chart và kiểm soát chất lượng để giảm return rate (đòn bẩy lợi nhuận nhanh nhất). (2) Ngừng mass discount, chuyển sang voucher/loyalty. (3) Flash sale xả tồn cho SKU sell-through <1\% để thu hồi dòng tiền lên đến 4 tỷ đồng và giảm chi phí lưu kho.
+
+\vspace{0.2em} % khoảng cách nhỏ giữa text và ảnh
+
+\noindent
+
+    \centering
+    \setlength{\tabcolsep}{2pt}
+
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth,height=3.2cm]{1.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth,height=3.2cm]{2.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.32\linewidth}
+        \includegraphics[width=\linewidth,height=3.2cm]{3.png}
+    \end{minipage}
+
+    \vspace{-0.2em}
+
+    \begin{minipage}{0.49\linewidth}
+        \includegraphics[width=\linewidth,height=3.8cm]{4.png}
+    \end{minipage}\hfill
+    \begin{minipage}{0.49\linewidth}
+        \includegraphics[width=\linewidth,height=3.8cm]{5.png}
+    \end{minipage}
+
+
+
+\subsection{Insight 2: Traffic Illusion and Customer Quality Decline}
+\vspace{-1em}
+
+\begin{flushleft} % Ép toàn bộ khối nội dung này căn trái
+\noindent
+\textbf{Descriptive.} Traffic bùng nổ trong giai đoạn COVID (2019–2022), đạt đỉnh $\sim$11M sessions. Tuy nhiên, hiệu quả đi ngược: Conversion Rate giảm mạnh và chạm đáy 0.33\%. Đặc biệt, doanh thu năm 2019 giảm sâu 38.56\% báo hiệu sự mất kiểm soát. Social Media là nguồn kéo traffic chính (CR 0.7\%, Rev/Session 356.32) nhưng chất lượng thấp với chỉ $\sim$0.9 đơn/khách.\par
+\vspace{0.5em}
+
+\noindent
+\textbf{Diagnostic.} Kết nối giữa hành vi khách hàng trong dịch và dữ liệu vận hành:\par
+\vspace{0.3em}
+
+\noindent
+$\bullet$ \textbf{Hành vi "Lướt dạo" (Window Shopping):} Trong dịch, khách hàng có xu hướng lên mạng nhiều hơn nhưng cực kỳ khắt khe về tài chính. Lưu lượng tăng chủ yếu từ \textbf{Social Media} và \textbf{Paid Search}.\par
+\noindent
+$\bullet$ \textbf{Bẫy Khuyến mãi:} Để cứu vãn Conversion Rate đang đi xuống, doanh nghiệp đã tung Promotion cực mạnh, có tỷ lệ dùng khuyến mãi lên tới 38\%.\par
+\vspace{0.5em}
+
+\noindent
+\textbf{Root Cause:} Dù Promotion cao, nhưng khách hàng gặp rào cản lớn về \textbf{trải nghiệm}. Với \textbf{14K đơn sai size} và \textbf{15K đơn hàng lỗi}, khách hàng trong dịch (vốn đã khó tính và ngại việc đi lại gửi trả hàng) sẽ chọn cách "thoát trang" (Bounce Rate $\sim$ 0.0045) hoặc chỉ mua thử 1 lần rồi bỏ. Điều này kéo tụt Conversion Rate tổng thể của hệ thống.\par
+\vspace{0.3em}
+
+\noindent
+\textbf{Sự đứt gãy tuyệt đối:} Khi lọc theo nhóm \textbf{At Risk}, chỉ số CR \textbf{biến mất hoàn toàn (bằng 0)} từ năm 2020 đến 2022.\par
+\vspace{0.3em}
+
+\noindent
+\textbf{Kết luận:} 49K khách hàng At Risk (chiếm 40\% database) không phát sinh bất kỳ giao dịch nào trong suốt 3 năm dịch. Traffic 11.1M hoàn toàn là khách vãng lai, không có sự đóng góp của tệp khách cũ.\par
+\vspace{0.3em}
+
+\noindent
+\textbf{Bộ lọc tàn khốc của Đại dịch:} Khi dịch ập đến năm 2020, thay vì trung thành, 49K khách hàng này chọn cách rời bỏ hoàn toàn vì họ không tin tưởng vào chất lượng sản phẩm/dịch vụ của doanh nghiệp sau những trải nghiệm tệ trước đó.\par
+\vspace{0.8em}
+
+\noindent
+\textbf{Predictive.} (i) 49K khách At Risk (40\% database) đã trở thành "zombie customers" (không giao dịch 3 năm), gần như không thể re-activate. (ii) Tăng trưởng 2022 (+12.15\%) chỉ là "ảo giác". (iii) Khi traffic từ dịch giảm, doanh thu có nguy cơ sụt sâu hơn mức 2019 do thiếu tệp khách trung thành.\par
+\vspace{0.8em}
+
+\noindent
+\textbf{Prescriptive.}\par
+\vspace{0.3em}
+
+\noindent
+\textbf{Action 1: Loại bỏ "traffic rác", tập trung khách thực.} Thay vì cố cứu 49K khách hàng "chết lâm sàng", doanh nghiệp cần cắt lỗ chi phí Marketing để bảo vệ lợi nhuận. Ngừng remarketing cho nhóm At Risk, chuyển ngân sách sang \textbf{Organic Search} và chăm sóc \textbf{Loyal} -- tệp đóng góp doanh thu bền.\par
+\vspace{0.5em}
+
+\noindent
+\textbf{Action 2: Ưu tiên Organic Search thay vì Social Media.} Social Media kéo traffic lớn nhưng kém chất lượng (mua xong rời đi), trong khi Organic Search là kênh “nuôi” doanh nghiệp với hành vi mua lặp lại cao. Khách Organic (thuộc nhóm At risk) vẫn đạt $\sim$0.88 đơn/khách, vượt xa Social ($\sim$0.57).\par
+\vspace{0.5em}
+
+\noindent
+$\Rightarrow$ Giảm ngân sách Ads (Facebook/TikTok), chuyển sang \textbf{SEO/Content} để thu hút khách chất lượng cao, tăng tần suất mua và cải thiện doanh thu dài hạn (2023+).
+
+\end{flushleft}
+% Row 1: 3 ảnh
+\begin{minipage}{0.32\linewidth}
+    \includegraphics[width=\linewidth,height=2.8cm]{6.png}
+\end{minipage}\hfill
+\begin{minipage}{0.32\linewidth}
+    \includegraphics[width=\linewidth,height=2.8cm]{7.png}
+\end{minipage}\hfill
+\begin{minipage}{0.32\linewidth}
+    \includegraphics[width=\linewidth,height=2.8cm]{8.png}
+\end{minipage}
+
+\vspace{-0.2em}
+
+% Row 2: 2 ảnh
+\begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth,height=3.2cm]{9.png}
+\end{minipage}\hfill
+\begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth,height=3.2cm]{10.png}
+\end{minipage}
+
+\vspace{-0.2em}
+
+% Row 3: 2 ảnh
+\begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth,height=3.2cm]{11.png}
+\end{minipage}\hfill
+\begin{minipage}{0.49\linewidth}
+    \includegraphics[width=\linewidth,height=3.2cm]{12.png}
+\end{minipage}
+
+\raggedright  
+
+\section{Phương pháp tiếp cận, Pipeline mô hình và Kết quả thực nghiệm}
+
+\subsection{Phương pháp tiếp cận}
+
+Bài toán được xây dựng dưới dạng dự báo chuỗi thời gian (Time Series Forecasting) với mục tiêu là \textbf{Revenue}. Nhóm áp dụng chiến lược \textbf{Residual Learning}, trong đó mô hình cơ sở dự đoán xu hướng chính và mô hình XGBoost học phần sai số còn lại:
+
+\[
+\hat{y} = y_{\text{base}} + y_{\text{residual}}
+\]
+
+Cách tiếp cận này giúp tách xu hướng và nhiễu, từ đó cải thiện độ chính xác trong các giai đoạn biến động. Thay vì để một mô hình duy nhất học toàn bộ cấu trúc dữ liệu (bao gồm cả xu hướng dài hạn và biến động ngắn hạn), việc phân tách thành hai thành phần giúp giảm độ phức tạp của bài toán và hạn chế hiện tượng overfitting. Đặc biệt, trong các hệ thống thương mại điện tử, doanh thu thường chịu ảnh hưởng đồng thời bởi yếu tố mùa vụ, chiến dịch marketing và hành vi người dùng, do đó residual learning giúp mô hình linh hoạt hơn trong việc nắm bắt các biến động bất thường.
+
+Ngoài ra, cách tiếp cận này còn cho phép dễ dàng thay thế hoặc cải tiến từng thành phần riêng biệt (base model hoặc residual model), từ đó nâng cao khả năng mở rộng và tối ưu hóa hệ thống trong thực tế.
+
+\subsection{Pipeline mô hình}
+
+\textbf{Feature Engineering:} Đặc trưng được xây dựng từ nhiều nguồn và tổng hợp theo ngày, bao gồm:
+\begin{itemize}
+    \item Web Traffic: sessions, bounce rate, hành vi người dùng.
+    \item Inventory:turnover, stockout risk, inventory health.
+    \item Orders: hành vi khách hàng, tổng đơn hàng.
+    \item Promotions: discount rate, promo score.
+\end{itemize}
+
+Các đặc trưng này không chỉ phản ánh trạng thái vận hành của hệ thống mà còn đóng vai trò như các biến dẫn (leading indicators) cho doanh thu. Ví dụ, sự gia tăng đột biến của sessions hoặc tỷ lệ chuyển đổi thường là tín hiệu sớm cho sự tăng trưởng doanh thu trong các ngày tiếp theo.
+
+\textbf{Khai thác mùa vụ:} Sử dụng lag 364 ngày cho toàn bộ feature và các lag residual (357, 364, 365, 371) để học seasonality theo năm. Việc lựa chọn các độ trễ xung quanh một chu kỳ năm giúp mô hình nắm bắt tốt các biến động liên quan đến các sự kiện lặp lại như lễ hội, chiến dịch sale hoặc thay đổi hành vi tiêu dùng theo mùa.
+
+\textbf{Tiền xử lý:} Merge dữ liệu từ nhiều nguồn, xử lý missing bằng forward-fill để đảm bảo tính liên tục của chuỗi thời gian, và áp dụng Winsorization (1\%–99\%) nhằm giảm ảnh hưởng của outliers. Bước này đặc biệt quan trọng vì các giá trị ngoại lai (ví dụ: spike do flash sale) có thể gây nhiễu mạnh cho quá trình huấn luyện nếu không được kiểm soát.
+
+\textbf{Mô hình:} Sử dụng \textbf{XGBoost Regressor} (tuning bằng Optuna) để dự đoán residual cho Revenue và COGS. XGBoost được lựa chọn nhờ khả năng xử lý tốt dữ liệu dạng bảng, nắm bắt quan hệ phi tuyến và ít nhạy cảm với scaling của feature. Quá trình tuning giúp tìm ra bộ siêu tham số tối ưu, cân bằng giữa bias và variance.
+
+\textbf{Huấn luyện:} Áp dụng \textbf{Time Series Cross Validation (5 folds)} với các metric như RMSE, MAE, $R^2$, MAPE. Phương pháp này đảm bảo mô hình được đánh giá trong bối cảnh dữ liệu có thứ tự thời gian, tránh rò rỉ thông tin từ tương lai về quá khứ. Đồng thời, mô hình được diễn giải bằng SHAP để xác định đặc trưng quan trọng, giúp tăng tính minh bạch và khả năng giải thích.
+
+\subsection{Kết quả thực nghiệm}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{10pt}
+
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Model} & \textbf{ Folds } & \textbf{ MAPE (\%) } & \textbf{RMSE} & \textbf{MAE} & $\mathbf{R^2}$ \\
+\hline
+XGBoost & 5 & 20.066 & 696247.688 & 506262.137 & 0.808975 \\
+\hline
+\end{tabular}
+\caption{Kết quả đánh giá mô hình}
+\end{table}
+
+\textbf{Phân tích:}
+\begin{itemize}
+    \item Mô hình ổn định qua các fold và giảm sai số so với baseline, cho thấy khả năng tổng quát hóa tốt trên dữ liệu chưa thấy.
+    \item Feature lag theo năm đóng vai trò quan trọng trong việc học seasonality, đặc biệt trong các giai đoạn cao điểm.
+    \item Giá trị $R^2$ cao cho thấy mô hình giải thích được phần lớn phương sai của dữ liệu, trong khi MAPE ở mức chấp nhận được đối với bài toán kinh doanh thực tế.
+\end{itemize}
+
+\textbf{Dự báo:} Kết quả test được tạo bằng cách ensemble trung bình 5 mô hình và cộng residual với base prediction. Cách tiếp cận ensemble giúp giảm variance và tăng độ ổn định của dự báo, đặc biệt trong các giai đoạn biến động mạnh.
+
+\subsection{Kết luận}
+
+Pipeline đạt hiệu quả cao nhờ kết hợp \textbf{Feature Engineering đa nguồn}, \textbf{Residual Learning} và \textbf{Time Series CV}. Phương pháp phù hợp với bài toán dự báo doanh thu có tính mùa vụ và chịu ảnh hưởng bởi nhiều yếu tố vận hành. 
+
+Trong tương lai, pipeline có thể được mở rộng bằng cách tích hợp thêm các mô hình học sâu (như LSTM hoặc Transformer) để khai thác tốt hơn các phụ thuộc dài hạn, cũng như bổ sung dữ liệu ngoại sinh (external data) như yếu tố kinh tế hoặc xu hướng thị trường nhằm cải thiện hơn nữa độ chính xác dự báo.
+
+\end{document}
