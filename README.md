@@ -221,15 +221,13 @@ Date,Revenue,COGS
 * Data cleaning & Exploratory Data Analysis (EDA).
 * Feature engineering.
 * Data visualization.
-* Model training & tuning (XGBoost).
-* Forecasting **Revenue** & evaluation (MAE, RMSE, R²).
 
 ---
 
 ### 2/ Trần Phú Nghĩa – Modeling
 
 * Feature engineering.
-* Model training & tuning (Random Forest).
+* Model training & tuning (XGBoost).
 * Forecasting **Revenue** & evaluation (MAE, RMSE, R²).
 
 ---
