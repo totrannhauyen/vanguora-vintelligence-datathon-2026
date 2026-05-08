@@ -1,13 +1,13 @@
 # vanguora-vintelligence-datathon-2026
 This repository contains a pre-provided dataset simulating a Vietnamese fashion e-commerce business from July 2012 to December 2022. It supports tasks such as EDA, forecasting, customer analysis, and building machine learning models.
 
-# 🧠 DATATHON 2026 – The Gridbreakers
+# DATATHON 2026 – The Gridbreakers
 
-## 📊 Sales Forecasting & Business Analytics Project
+## Sales Forecasting & Business Analytics Project
 
 ---
 
-## 📌 Overview
+## Overview
 
 This project is developed for **DATATHON 2026 – The Gridbreakers**, organized by VinTelligence (VinUniversity DS & AI Club).
 
@@ -15,7 +15,7 @@ The goal is to transform raw e-commerce data into **actionable business insights
 
 ---
 
-## 🎯 Objectives
+## Objectives
 
 This project addresses three main tasks:
 
@@ -36,7 +36,7 @@ This project addresses three main tasks:
 
 ---
 
-## 📂 Dataset Description
+## Dataset Description
 
 The dataset simulates operations of an **e-commerce fashion business in Vietnam (2012–2024)** and includes **15 CSV files**, categorized into 4 layers:
 
@@ -68,7 +68,7 @@ The dataset simulates operations of an **e-commerce fashion business in Vietnam 
 
 ---
 
-## 🔗 Data Relationships
+## Data Relationships
 
 * `orders` ↔ `payments`: 1–1.
 * `orders` ↔ `shipments`: 1–0/1.
@@ -78,7 +78,7 @@ The dataset simulates operations of an **e-commerce fashion business in Vietnam 
 
 ---
 
-## 🛠️ Project Structure
+## Project Structure
 
 ```
 📦 vanguora-vintelligence-datathon-2026
@@ -97,7 +97,7 @@ The dataset simulates operations of an **e-commerce fashion business in Vietnam 
 
 ---
 
-## 📊 Exploratory Data Analysis (EDA)
+## Exploratory Data Analysis (EDA)
 
 Key analysis includes:
 
@@ -110,9 +110,9 @@ Key analysis includes:
 
 ---
 
-## 📈 Modeling Approach
+## Modeling Approach
 
-### 🔹 Problem
+### Problem
 
 Build a forecasting model to predict daily Revenue for the period:
 
@@ -121,7 +121,7 @@ Build a forecasting model to predict daily Revenue for the period:
 ```
 The objective is to capture sales patterns, seasonality, promotions, and operational factors affecting revenue performance.
 
-### 🔹 Feature Engineering
+### Feature Engineering
 The following features were created to improve model performance:
 * Time-based features: day, week, month, quarter, seasonality.
 * Lag features: previous revenue values (e.g., 1-day, 7-day, 30-day lag).
@@ -129,7 +129,7 @@ The following features were created to improve model performance:
 * Promotion signals: discount campaigns, marketing activities.
 * Inventory signals: stock availability, replenishment indicators.
 * Traffic indicators: sessions, visits, customer activity.
-### 🔹 Models Used
+### Models Used
 The main model used for forecasting:
 * XGBoost.
 Reasons for choosing XGBoost:
@@ -139,7 +139,7 @@ Reasons for choosing XGBoost:
 * High predictive accuracy for time-series regression with engineered features.
 
 ---
-### 🔹 Hyperparameter Optimization
+### Hyperparameter Optimization
 To improve performance, Optuna was used for automated hyperparameter tuning.
 Optimized parameters include:
 * n_estimators.
@@ -153,7 +153,7 @@ Optimized parameters include:
 * reg_lambda.
 
 ---
-## 🔹 Evaluation Metrics
+## Evaluation Metrics
 
 * **MAE (Mean Absolute Error).**
 * **RMSE (Root Mean Squared Error).**
@@ -165,11 +165,11 @@ Goal:
 * Maximize R² (closer to 1 is better).
 
 ---
-## 🔹 Final Outcome
+## Final Outcome
 The tuned XGBoost + Optuna pipeline delivered strong forecasting performance and was selected as the final model for daily revenue prediction.
 
 ---
-## 🚀 How to Run
+## How to Run
 
 ### 1. Clone repository
 
@@ -209,7 +209,7 @@ Date,Revenue,COGS
 
 ---
 
-## 💡 Key Insights (Example)
+## Key Insights (Example)
 
 * Certain product segments yield higher profit margins.
 * Promotions significantly impact short-term revenue spikes.
@@ -218,7 +218,7 @@ Date,Revenue,COGS
 
 ---
 
-## 🧠 Business Recommendations
+## Business Recommendations
 
 * Optimize inventory for high-demand segments.
 * Personalize promotions by customer segment.
@@ -227,7 +227,7 @@ Date,Revenue,COGS
 
 ---
 
-## 📎 Reproducibility
+## Reproducibility
 
 * Random seeds are fixed.
 * Full pipeline is provided.
@@ -235,7 +235,7 @@ Date,Revenue,COGS
 
 ---
 
-## 👥 Team Members & Responsibilities
+## Team Members & Responsibilities
 
 ### 1/ Tô Trần Nhã Uyên – Data Processing & Exploration (Team Leader)
 
@@ -274,7 +274,7 @@ Date,Revenue,COGS
 
 ---
 
-## 🤝 Collaboration Workflow
+## Collaboration Workflow
 
 * Member 1 leads coordination, preprocessing, feature engineering, and core model development.
 * Member 2 develops and optimizes additional predictive models.
@@ -287,7 +287,7 @@ Date,Revenue,COGS
 
 ---
 
-## 📌 Competition Links
+## Competition Links
 
 * Kaggle: https://www.kaggle.com/competitions/datathon-2026-round-1
 * Report: [(attach link here)](https://drive.google.com/drive/folders/1Jg3fHJugJVlRgAq5aoQGmYV28adSFBoh?usp=drive_link)
